@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy | Pomodoro Timer</title>
+    <meta name="description" content="Neo-Brutalist Pomodoro Timer by Fantasy — stay focused, build more.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pomodoro.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo pixel-font">FANTASY</a>
+        <div class="nav-links">
+            <a href="pomodoro.html" class="nav-active">Pomodoro</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="pomo-hero">
+        <div class="pomo-container">
+            <!-- Mode Selector Tabs -->
+            <div class="pomo-tabs" id="pomo-tabs">
+                <button class="pomo-tab active" data-mode="work" id="tab-work">WORK</button>
+                <button class="pomo-tab" data-mode="short" id="tab-short">SHORT BREAK</button>
+                <button class="pomo-tab" data-mode="long" id="tab-long">LONG BREAK</button>
+            </div>
+
+            <!-- Timer Display -->
+            <div class="pomo-timer-wrap">
+                <svg class="pomo-ring" viewBox="0 0 260 260" id="pomo-ring">
+                    <circle class="pomo-ring-bg" cx="130" cy="130" r="120" />
+                    <circle class="pomo-ring-progress" cx="130" cy="130" r="120" id="pomo-ring-progress" />
+                </svg>
+                <div class="pomo-time-display">
+                    <span class="pomo-time pixel-font" id="pomo-time">25:00</span>
+                    <span class="pomo-label" id="pomo-label">FOCUS TIME</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="pomo-controls">
+                <button class="pomo-btn pomo-btn-main" id="pomo-start" onclick="toggleTimer()">▶ START</button>
+                <button class="pomo-btn pomo-btn-reset" id="pomo-reset" onclick="resetTimer()">↻ RESET</button>
+            </div>
+
+            <!-- Session Tracker -->
+            <div class="pomo-sessions">
+                <span class="pomo-sessions-label pixel-font">SESSIONS</span>
+                <div class="pomo-dots" id="pomo-dots">
+                    <span class="pomo-dot"></span>
+                    <span class="pomo-dot"></span>
+                    <span class="pomo-dot"></span>
+                    <span class="pomo-dot"></span>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="pomo-stats">
+                <div class="pomo-stat">
+                    <span class="pomo-stat-value pixel-font" id="stat-completed">0</span>
+                    <span class="pomo-stat-label">Completed</span>
+                </div>
+                <div class="pomo-stat-divider"></div>
+                <div class="pomo-stat">
+                    <span class="pomo-stat-value pixel-font" id="stat-total-time">0m</span>
+                    <span class="pomo-stat-label">Focus Time</span>
+                </div>
+                <div class="pomo-stat-divider"></div>
+                <div class="pomo-stat">
+                    <span class="pomo-stat-value pixel-font" id="stat-streak">0</span>
+                    <span class="pomo-stat-label">Streak</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Marquee -->
+    <div class="marquee-container pomo-marquee">
+        <div class="marquee-content">
+            <span>FOCUS</span> <span>✦</span>
+            <span>BUILD</span> <span>✦</span>
+            <span>SHIP</span> <span>✦</span>
+            <span>REPEAT</span> <span>✦</span>
+            <span>GRIND</span> <span>✦</span>
+            <span>CREATE</span> <span>✦</span>
+            <span>FOCUS</span> <span>✦</span>
+            <span>BUILD</span> <span>✦</span>
+            <span>SHIP</span> <span>✦</span>
+            <span>REPEAT</span> <span>✦</span>
+            <span>GRIND</span> <span>✦</span>
+            <span>CREATE</span> <span>✦</span>
+        </div>
+    </div>
+
+    <footer>
+        <p class="pixel-font" style="color: var(--accent); font-size: 1.2rem;">Stay Focused. Ship More.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html" style="color: var(--secondary); text-decoration: none;">← Back to Portfolio</a></p>
+    </footer>
+
+    <script src="pomodoro.js"></script>
+</body>
+</html>

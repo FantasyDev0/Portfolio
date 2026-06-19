@@ -1,3 +1,6 @@
+        // --- Mobile Detection ---
+        const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.innerWidth <= 768;
+
         // --- Web Audio API Setup ---
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -54,12 +57,14 @@
             }
         }
 
-        // Auto-start music on first interaction (required by browsers)
-        document.addEventListener('click', () => {
-            if (!isPlayingBgm) {
-                toggleBGM();
-            }
-        }, { once: true });
+        // Auto-start music on first interaction (desktop only — skip on mobile to avoid jarring audio)
+        if (!isMobile) {
+            document.addEventListener('click', () => {
+                if (!isPlayingBgm) {
+                    toggleBGM();
+                }
+            }, { once: true });
+        }
 
         // --- Throwable Blocks Logic ---
         let draggedBlock = null;
@@ -96,7 +101,7 @@
         });
 
         document.addEventListener('mousemove', (e) => {
-            createTrailBlock(e.clientX, e.clientY);
+            if (!isMobile) createTrailBlock(e.clientX, e.clientY);
             
             if (draggedBlock) {
                 const now = performance.now();
