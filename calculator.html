@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy | Calculator</title>
+    <meta name="description" content="Neo-Brutalist Calculator by Fantasy — crunch numbers in style.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo pixel-font">FANTASY</a>
+        <div class="nav-links">
+            <a href="pomodoro.html">Pomodoro</a>
+            <a href="calculator.html" class="nav-active">Calculator</a>
+            <a href="index.html">Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="calc-hero">
+        <div class="calc-container">
+            <!-- Display -->
+            <div class="calc-display-wrap">
+                <div class="calc-expression" id="calc-expression">&nbsp;</div>
+                <div class="calc-display pixel-font" id="calc-display">0</div>
+            </div>
+
+            <!-- Button Grid -->
+            <div class="calc-grid">
+                <button class="calc-btn calc-fn" id="btn-clear" onclick="calcClear()">AC</button>
+                <button class="calc-btn calc-fn" id="btn-sign" onclick="calcSign()">±</button>
+                <button class="calc-btn calc-fn" id="btn-percent" onclick="calcPercent()">%</button>
+                <button class="calc-btn calc-op" id="btn-divide" onclick="calcOp('/')">÷</button>
+
+                <button class="calc-btn" id="btn-7" onclick="calcDigit('7')">7</button>
+                <button class="calc-btn" id="btn-8" onclick="calcDigit('8')">8</button>
+                <button class="calc-btn" id="btn-9" onclick="calcDigit('9')">9</button>
+                <button class="calc-btn calc-op" id="btn-multiply" onclick="calcOp('*')">×</button>
+
+                <button class="calc-btn" id="btn-4" onclick="calcDigit('4')">4</button>
+                <button class="calc-btn" id="btn-5" onclick="calcDigit('5')">5</button>
+                <button class="calc-btn" id="btn-6" onclick="calcDigit('6')">6</button>
+                <button class="calc-btn calc-op" id="btn-subtract" onclick="calcOp('-')">−</button>
+
+                <button class="calc-btn" id="btn-1" onclick="calcDigit('1')">1</button>
+                <button class="calc-btn" id="btn-2" onclick="calcDigit('2')">2</button>
+                <button class="calc-btn" id="btn-3" onclick="calcDigit('3')">3</button>
+                <button class="calc-btn calc-op" id="btn-add" onclick="calcOp('+')">+</button>
+
+                <button class="calc-btn calc-zero" id="btn-0" onclick="calcDigit('0')">0</button>
+                <button class="calc-btn" id="btn-decimal" onclick="calcDecimal()">.</button>
+                <button class="calc-btn calc-eq" id="btn-equals" onclick="calcEquals()">=</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>CALCULATE</span> <span>✦</span>
+            <span>COMPUTE</span> <span>✦</span>
+            <span>SOLVE</span> <span>✦</span>
+            <span>CRUNCH</span> <span>✦</span>
+            <span>MATH</span> <span>✦</span>
+            <span>NUMBERS</span> <span>✦</span>
+            <span>CALCULATE</span> <span>✦</span>
+            <span>COMPUTE</span> <span>✦</span>
+            <span>SOLVE</span> <span>✦</span>
+            <span>CRUNCH</span> <span>✦</span>
+            <span>MATH</span> <span>✦</span>
+            <span>NUMBERS</span> <span>✦</span>
+        </div>
+    </div>
+
+    <footer>
+        <p class="pixel-font" style="color: var(--accent); font-size: 1.2rem;">Crunch Numbers. Ship Code.</p>
+        <p style="margin-top: 0.5rem;"><a href="index.html" style="color: var(--secondary); text-decoration: none;">← Back to Portfolio</a></p>
+    </footer>
+
+    <script src="calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+/* ============================================
+   CALCULATOR PAGE — Neo-Brutalist Extension
+   ============================================ */
+
+/* Hero Layout */
+.calc-hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 5%;
+}
+
+.calc-container {
+    background: var(--white);
+    border: var(--border-width) solid var(--black);
+    box-shadow: 15px 15px 0 var(--secondary);
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Display */
+.calc-display-wrap {
+    background: var(--black);
+    border: var(--border-width) solid var(--black);
+    padding: 1.5rem 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+}
+
+.calc-expression {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #888;
+    min-height: 1.4em;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calc-display {
+    font-size: 3rem;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: transform 0.08s ease;
+}
+
+/* Punch animation on keypress */
+.calc-display.punch {
+    transform: scale(1.06);
+}
+
+/* Button Grid */
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.3rem;
+    padding: 1.1rem 0;
+    background: var(--white);
+    color: var(--black);
+    border: var(--border-width) solid var(--black);
+    box-shadow: 4px 4px 0 var(--black);
+    cursor: inherit;
+    transition: transform 0.08s, box-shadow 0.08s, background 0.1s;
+    font-weight: 700;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.calc-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--black);
+}
+
+/* Function buttons (AC, ±, %) */
+.calc-fn {
+    background: #e8e8e8;
+}
+
+.calc-fn:hover {
+    background: #d5d5d5;
+}
+
+/* Operator buttons */
+.calc-op {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.calc-op:hover {
+    background: #e0004b;
+}
+
+.calc-op.active-op {
+    background: var(--accent);
+    color: var(--black);
+    box-shadow: 4px 4px 0 var(--primary);
+}
+
+/* Zero button spans 2 columns */
+.calc-zero {
+    grid-column: span 2;
+}
+
+/* Equals button */
+.calc-eq {
+    background: var(--grass);
+    color: var(--black);
+}
+
+.calc-eq:hover {
+    background: #00dd2c;
+}
+
+/* Number buttons hover */
+.calc-btn:not(.calc-fn):not(.calc-op):not(.calc-eq):hover {
+    background: #f5f5f5;
+}
+
+/* Error shake animation */
+@keyframes calc-shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+}
+
+.calc-display-wrap.error {
+    animation: calc-shake 0.4s ease;
+}
+
+/* Result flash */
+@keyframes calc-flash {
+    0% { background: var(--black); }
+    50% { background: #1a1a2e; }
+    100% { background: var(--black); }
+}
+
+.calc-display-wrap.flash {
+    animation: calc-flash 0.3s ease;
+}
+
+/* Footer override */
+body:has(.calc-hero) footer {
+    margin-top: 0;
+    padding: 2rem 5%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .calc-hero {
+        min-height: auto;
+        padding: 2rem 4%;
+    }
+
+    .calc-container {
+        padding: 1.5rem;
+        box-shadow: 8px 8px 0 var(--secondary);
+    }
+
+    .calc-display {
+        font-size: 2.5rem;
+    }
+
+    .calc-btn {
+        font-size: 1.1rem;
+        padding: 1rem 0;
+        min-height: 50px;
+    }
+
+    .calc-grid {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calc-container {
+        padding: 1rem;
+        box-shadow: 6px 6px 0 var(--secondary);
+    }
+
+    .calc-display-wrap {
+        padding: 1.2rem 1rem 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .calc-display {
+        font-size: 2rem;
+    }
+
+    .calc-expression {
+        font-size: 0.8rem;
+    }
+
+    .calc-btn {
+        font-size: 0.95rem;
+        padding: 0.85rem 0;
+        min-height: 48px;
+        box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .calc-btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 var(--black);
+    }
+
+    .calc-grid {
+        gap: 6px;
+    }
+}
