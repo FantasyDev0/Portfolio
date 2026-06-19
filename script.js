@@ -28,43 +28,6 @@
             el.addEventListener('mousedown', () => playSfx(400, 'sawtooth', 0.1, 0.05)); // Click blop
         });
 
-        // BGM Logic
-        let isPlayingBgm = false;
-        let bgmInterval;
-        const bgmNotes = [
-            329.6, 261.6, 329.6, 392.0, 261.6, 196.0, 261.6, 329.6,
-            349.2, 329.6, 293.6, 261.6, 293.6, 392.0, 349.2, 293.6
-        ];
-
-        function toggleBGM() {
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            
-            const btn = document.getElementById('music-btn');
-            if (isPlayingBgm) {
-                clearInterval(bgmInterval);
-                isPlayingBgm = false;
-                btn.innerText = '🎵 MUSIC: OFF';
-                btn.style.background = 'var(--accent)';
-            } else {
-                let step = 0;
-                bgmInterval = setInterval(() => {
-                    playSfx(bgmNotes[step % bgmNotes.length], 'square', 0.15, 0.03);
-                    step++;
-                }, 200);
-                isPlayingBgm = true;
-                btn.innerText = '🎵 MUSIC: ON';
-                btn.style.background = 'var(--grass)';
-            }
-        }
-
-        // Auto-start music on first interaction (desktop only — skip on mobile to avoid jarring audio)
-        if (!isMobile) {
-            document.addEventListener('click', () => {
-                if (!isPlayingBgm) {
-                    toggleBGM();
-                }
-            }, { once: true });
-        }
 
         // --- Throwable Blocks Logic ---
         let draggedBlock = null;

@@ -2,21 +2,6 @@
    POMODORO PAGE — Neo-Brutalist Extension
    ============================================ */
 
-/* Active nav link indicator */
-.nav-active {
-    color: var(--primary) !important;
-    position: relative;
-}
-.nav-active::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--primary);
-}
-
 /* Hero Layout */
 .pomo-hero {
     min-height: 85vh;

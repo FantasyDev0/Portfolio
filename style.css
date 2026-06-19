@@ -80,6 +80,19 @@
             color: var(--secondary);
         }
 
+        .nav-links a.nav-active {
+            color: var(--primary);
+        }
+        .nav-links a.nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 85vh;
